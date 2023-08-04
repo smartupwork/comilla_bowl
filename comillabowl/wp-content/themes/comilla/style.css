@@ -1,0 +1,3137 @@
+@charset "UTF-8";
+
+/*
+Theme Name: Comilla Bowl
+Theme URI: https://wordpress.org/themes/twentytwentyone/
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Twenty Twenty-One is a blank canvas for your ideas and it makes the block editor your best brush. With new block patterns, which allow you to create a beautiful layout in a matter of seconds, this theme’s soft colors and eye-catching — yet timeless — design will let your work shine. Take it for a spin! See how Twenty Twenty-One elevates your portfolio, business website, or personal blog.
+Requires at least: 5.3
+Tested up to: 6.0
+Requires PHP: 5.6
+Version: 1.7
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwentyone
+Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready
+
+Twenty Twenty-One WordPress Theme, (C) 2020 WordPress.org
+Twenty Twenty-One is distributed under the terms of the GNU GPL.
+*/
+
+/**
+ * SETTINGS
+ * File-header..........The file header for the themes style.css file.
+ * Fonts................Any font files, if the project needs specific fonts.
+ * Global...............Project-specific, globally available variables.
+ *
+ * TOOLS
+ * Functions............Global functions.
+ * Mixins...............Global mixins.
+ *
+ * GENERIC
+ * Normalize.css........Normalise browser defaults.
+ * Breakpoints..........Mixins and variables for responsive styles
+ * Vertical-margins.....Vertical spacing for the main components.
+ * Reset................Reset specific elements to make them easier to style in other contexts.
+ * Clearings............Clearings for the main components.
+ *
+ * ELEMENTS
+ * Blockquote...........Default blockquote.
+ * Forms................Element-level form styling.
+ * Headings.............H1–H6
+ * Links................Default links.
+ * Lists................Default lists.
+ * Media................Images, Figure, Figcaption, Embed, iFrame, Objects, Video.
+ *
+ * BLOCKS
+ * Audio................Specific styles for the audio block.
+ * Button...............Specific styles for the button block.
+ * Code.................Specific styles for the code block.
+ * Columns..............Specific styles for the columns block.
+ * Cover................Specific styles for the cover block.
+ * File.................Specific styles for the file block.
+ * Gallery..............Specific styles for the gallery block.
+ * Group................Specific styles for the group block.
+ * Heading..............Specific styles for the heading block.
+ * Image................Specific styles for the image block.
+ * Latest comments......Specific styles for the latest comments block.
+ * Latest posts.........Specific styles for the latest posts block.
+ * Legacy...............Specific styles for the legacy gallery.
+ * List.................Specific styles for the list block.
+ * Media text...........Specific styles for the media and text block.
+ * Navigation...........Specific styles for the navigation block.
+ * Paragraph............Specific styles for the paragraph block.
+ * Pullquote............Specific styles for the pullquote block.
+ * Quote................Specific styles for the quote block.
+ * Search...............Specific styles for the search block.
+ * Separator............Specific styles for the separator block.
+ * Table................Specific styles for the table block.
+ * Verse................Specific styles for the verse block.
+ * Video................Specific styles for the video block.
+ * Utilities............Block alignments.
+ *
+ * COMPONENTS
+ * Header...............Header styles.
+ * Footer...............Footer styles.
+ * Comments.............Comment styles.
+ * Archives.............Archive styles.
+ * 404..................404 styles.
+ * Search...............Search styles.
+ * Navigation...........Navigation styles.
+ * Footer Navigation....Footer Navigation styles.
+ * Pagination...........Pagination styles.
+ * Single...............Single page and post styles.
+ * Posts and pages......Misc, sticky post styles.
+ * Entry................Entry, author biography.
+ * Widget...............Widget styles.
+ * Editor...............Editor styles.
+ *
+ * UTILITIES
+ * A11y.................Screen reader text, prefers reduced motion etc.
+ * Color Palette........Classes for the color palette colors.
+ * Editor Font Sizes....Editor Font Sizes.
+ * Measure..............The width of a line of text, in characters.
+ */
+
+/* Categories 01 to 03 are the basics. */
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "kulturista-web", serif;
+   
+}
+p{
+  font-family: "fieldwork", sans-serif;
+  margin-bottom: 0;
+}
+
+.header{
+  width: 100%;
+}
+.container{
+  max-width: 1350px;
+  margin: 0 auto;
+
+}
+.btn{
+  font-family: "fieldwork", sans-serif; 
+  font-weight: 600;  
+  text-transform: uppercase;
+}
+.container-fluid{
+  max-width: 100%;
+  margin: 0 auto;
+}
+.navbar{
+  background-color: #0055B8;
+
+}
+.tablet-header{
+  display: none;
+}
+.menu-dropdown{
+  font-size: 16px;
+}
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+
+
+ul.sub-menu li{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+
+ul.sub-menu li a{
+  border-bottom: 2px solid gray;
+}
+ul.sub-menu li a:hover{
+  border-bottom: none;
+}
+
+ul.sub-menu li a:before{
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: red;
+  left: 0;
+  bottom: -5px;
+  transform: scale(0);
+  transition: all ease .7s;
+  transform-origin: center;
+}
+ul.sub-menu li a:hover::before{
+  transform: scale(1);
+  transform-origin: center;
+}
+
+
+
+
+
+
+
+
+
+ .sub-menu{
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  text-align: center;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 26px; 
+  width:100%;
+
+}
+.sub-menu:hover{
+  opacity: 1;
+} 
+.sub-menu li a{
+  color: black;
+  font-size: 18px;
+}
+
+
+.menu-wrapper{
+  display: flex;
+  justify-content : start;
+    align-items: center;
+    margin-bottom: 0;
+}
+.menu-wrapper li::marker{
+  color: transparent;
+}
+.dropdown {
+  position: static !important;
+}
+
+.dropdown-menu {
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+  margin-top: 0px !important;
+  width: 100% !important;
+}
+.menu-col{
+  padding-left: 20px;
+}
+nav {
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+nav a {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  list-style: none;
+  position: relative;
+}
+nav a:before{
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: red;
+  left: 0;
+  bottom: -12px;
+  transform: scale(0);
+  transition: all ease .7s;
+  transform-origin: center;
+}
+nav a:hover::before{
+  transform: scale(1);
+  transform-origin: center;
+}
+
+.links{
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+.dropdown .megaButton {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.megaContent {
+  text-align: center;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  z-index: 1;
+  margin-top: 13px;
+}
+.megaContent .megaHeader {
+
+  color: white;
+}
+.dropdown:hover .megaContent {
+  display: block;
+}
+.megaColumn {
+   /* float: left; */
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+.megaColumn .drop-link {
+  color: black;
+  padding: 16px;
+  margin:10px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-bottom: 2px solid black;
+}
+ .drop-link:hover{
+   border-left: 2px solid red;
+   color: red;
+}
+
+
+.sub-menu-toggle{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+.menu-dropdown .show{
+  position: static;
+ 
+}
+.menu-dropdown:hover{
+  background-color: #0055B8 !important;
+}
+.dropdown-menu  {
+  text-align:center;
+  width: 100%;
+  z-index: 1212;
+}
+.dropdown-menu ul {
+  background: #ffffff;
+  list-style:none;
+  margin: 0;
+  position: absolute;
+  right: 29.1%;
+  width: 100%;
+  padding: 30px 30px;
+}
+.dropdown-menu ul li {
+  display: inline-block;
+}
+.dropdown-menu ul li a {
+  color:#333333;
+  display:block;
+  text-decoration:none;
+  float: left;
+width: 100%;
+}
+
+
+
+
+.dropdown-toggle::after{
+  display: none;
+}
+.nav-item a:hover{
+  background-color: #0055B8;
+  color: white;
+}
+.navbar-brand img{
+  width: 167px;
+    height: 79px;
+}
+.nav-link{
+  font-weight: 700;
+  letter-spacing: 0.22px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  opacity: 1;
+}
+.nav-link:hover{
+  background-color: #b8bbbb;
+}
+
+
+.form-outline {
+  position: relative;
+  color: #aaa;
+  font-size: 16px;
+}
+.form-outline  {display: inline-block;}
+.form-outline  input {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0;
+  width: 400px;
+  height: 33px;
+  background-color: transparent;
+}
+.form-outline input { text-indent: 32px;}
+.form-outline .search-icon { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.form-outline .search-icon{left: auto; right: 10px;}
+.search-icon img{
+  position: absolute;
+  right: 0px;
+  top: -2px;
+}
+
+
+
+
+
+
+
+
+.search::placeholder{
+  align-items: end;
+text-align: end;
+text-transform: uppercase;
+font-size: 12px;
+font-weight: 400;
+color: white;
+padding-right: 30px;
+}
+.bi-search {
+  color: rgb(255, 255, 255);
+  right: 35px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.form-outline{
+  display: flex;
+}
+.navbar-search-btn{
+  border-radius: 0;
+  border: none;
+  background-color: #0055B8;
+}
+.logo-section{
+ position: relative;
+}
+.logo-section img{
+  z-index: 2;
+  padding: 10px;
+  max-width: 150px;
+}
+.logo-section:before {
+    content: '';
+    position: absolute;
+    background: white;
+    left: -18px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: skewX(-20deg);
+}
+/* bottom header */
+
+.sec-navbar{
+  display: flex;
+  flex-direction: row;
+ 
+  gap: 30px;
+}
+.nav-links{
+  font-weight: 500;
+  letter-spacing: 0.22px;
+  color: #ffffff;
+  opacity: 1;
+  text-decoration: none;
+  font-family: "fieldwork", sans-serif;
+}
+.nav-items{
+  text-decoration: none;
+  
+}
+.december h2{
+  font-size: 18px;
+  letter-spacing: 0.22px;
+color: #FFFFFF;
+text-transform: uppercase;
+opacity: 1;
+font-weight: 600;
+padding-left: 85px;
+
+}
+.social-icons {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-left: 20px;
+}
+
+
+
+/* banner section  */
+.banner{
+  background-image: url(images/HeroBackground.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.banner-content h1{
+  display: inline;
+  font-size: 60px;
+  font-weight: 600;
+  letter-spacing: 0px;
+color: #FFFFFF;
+text-shadow: 0px 0px 20px #00000027;
+opacity: 1;
+
+}
+.box {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.borderbottom {
+  border-bottom: 3px solid #fd0101;
+  width: 20%;
+}
+.banner-para p{
+  font-size: 18px;
+}
+.banner-btn-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.purchase-btn {
+  background-color: #EA0029;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid white;
+  border-radius: 100px;
+  padding: 10px 40px 10px 40px;
+}
+.purchase-btn:hover{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+}
+.view-btn{
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 100px;
+  font-weight: 600;
+  padding: 10px 30px 10px 30px;
+}
+.view-btn:hover{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+}
+.vertical-togglee{
+  position: absolute;
+}
+.btn-close{
+  background-image: url(images/chevron.png);
+  top: 45%;
+  left: -6%;
+  position: absolute;
+  padding: 16px !important;
+  background-color: #ea0000;
+  border-radius: 100px;
+  opacity: 100;
+}
+.togglee-btn{
+  background-color: #EA0029;
+  background-image: url(images/chevron.png);
+  border-radius: 100px;
+  position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 45%;
+  right: 7%;
+  padding: 23px;
+  z-index: 22;
+}
+.offcanvas{
+  top: 7% !important;
+  height: 900px;
+  z-index: 9999;
+}
+.offcanvas-image{
+  display: flex;
+}
+.logo1 img{
+  width: 154px;
+}
+.logo2 img{
+  width: 154px;
+}
+.offcanvas-head-con span{
+  color: #0055B8;
+  font-size: 38px;
+}
+.offcanvas-body h4{
+  font-size: 22px;
+  color: #7D8080;
+  text-align: center;
+}
+.offcanvas-head-con2 span{
+  color: #EA0029;
+  font-size: 24px;
+}
+.canvas-btn{
+  background-color: #EA0029;
+  color: white;
+  border: 1px solid white;
+  border-radius: 100px;
+  padding: 5px 30px 5px 30px;
+  font-size: 13px;
+}
+.canvas-btn-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.canvas-btn:hover{
+  background-color: #0055B8;
+  color: white;
+  border: 1px solid white;
+}
+
+
+
+
+
+
+
+
+
+
+.dates{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+
+ 
+.clock {
+    overflow: hidden;
+}
+ .clock-wrapper{
+    border-radius: 20px;
+    background-color: #ebe9e9;
+    margin-top: 80px;
+ }
+#clock-header{
+  color: #0055B8;
+} 
+#days{
+  color: red;
+  font-size: 48px;
+  font-weight: 600;
+}
+#days-text{
+  font-size: 10px;
+  font-weight: 600;
+}
+#secs{
+  color: red;
+  font-size: 48px;
+  font-weight: 600;
+}
+#secs-text{
+  font-size: 10px;
+  font-weight: 600;
+} 
+#hours-text{
+  font-size: 10px;
+  font-weight: 600;
+}
+#hours{
+  color: red;
+  font-size: 48px;
+  font-weight: 600;
+}
+#mins{
+  color: red;
+  font-size: 48px;
+  font-weight: 600;
+}
+#mins-text{
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.color-line-1{
+  background-color: #0055B8;
+  height: 20px;
+}
+.color-line-2{
+  background-color: #EA0029;
+  height: 53px;
+}
+
+
+
+
+/* news and tab section  */
+.left-section h3   { font-size: 32px;
+color: #0055B8;
+font-weight: 600;
+}
+.left-mobile-section h3{
+  font-size: 26px;
+color: #0055B8;
+font-weight: 600;
+}
+.left-mobile-section{
+  display: none;
+}
+.tab-panel-titles{
+  border-top: 2px solid gray;
+  padding-top: 20px;
+}
+.tab-panel-titles h5{
+  font-weight: 600;
+}
+#ex1{
+  justify-content: space-around;
+}
+.nav-tabss-1:hover{
+  background-color: transparent !important;
+}
+.nav-tabss-2:hover{
+  background-color: transparent !important;
+}
+.nav-tabs .nav-link .img1{
+  display: none ;
+}
+.nav-tabs .nav-link.active .img1{
+  display: block;
+}
+.nav-tabs .nav-link.active .img2{
+  display: none;
+}
+.nav-tabss-1 img{
+height: 80px;
+
+}
+.nav-tabss-2 img{
+  height: 80px;
+ 
+  }
+.team-sec{
+  height: 55px;
+}
+.conference-wrapper{
+  background-color: #e6e6e6;
+    padding: 20px 20px;
+}
+.team-logo img{
+  width: 40px;
+  height: 40px;
+}
+.score-wrapper{
+  gap: 5px;
+}
+.score h5{
+  font-size: 18px;
+  color: #171615;
+  letter-spacing: 3px;
+    font-family: "fieldwork", sans-serif;
+}
+.team-name h5{
+  padding-left: 20px;
+  font-weight: 400;
+  font-family: "fieldwork", sans-serif;
+}
+.east h5{
+  font-weight: 600;
+}
+
+.news{
+  border-top: 2px solid gray;
+}
+.news-title h4{
+  font-size: 32px;
+  color: #0055B8;
+  font-weight: 600;
+}
+.news-image img{
+  width: 209px;
+height: 132px;
+}
+.news-content h5{
+  color: #0055B8;
+  font-size: 15px;
+  font-weight: 600;
+}
+.news-content p{
+  font-size: 20px;
+  font-weight: 600;
+}
+.news-btn-wrapper{
+display: flex;
+padding-top: 20px;
+border-top: 2px solid gray;
+}
+.news-btn{
+  background-color: #EA0029;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 100px;
+  padding: 10px 30px 10px 30px;
+}
+.news-btn:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+
+/* legend section  */
+.legends-slider{
+background-color: #e6e6e6;
+}
+
+.legend-heading h3{
+  color: #0055B8;
+  font-size: 32px;
+  font-weight: 600;
+}
+.legend-heading p{
+  font-size: 18px;
+    font-weight: 600;
+}
+#legend-slider .owl-nav {
+  position: absolute;
+     top: -54px;
+    right: -1px;
+  min-height: 100%;
+  width: 62px;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #e6e6e6;
+}
+#legend-slider .owl-prev,
+#legend-slider .owl-next {
+     /* padding: 78px 33px !important; */
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    height: 186px;
+    border: 1px solid gray;
+    margin: 0;
+}
+#legend-slider .owl-prev {
+  border-top: 1px solid gray;
+}
+#legend-slider .owl-prev span,
+#legend-slider .owl-next span {
+  font-size: 50px;
+}
+.legend-section{
+  background-color: #EAEAEA;
+}
+.legends-content-1 h3{
+  font-size: 32px;
+  font-weight: 600;
+  color: #0055B8;
+}
+
+.legends-content-1 h4{
+  font-size: 20px;
+  font-weight: 600;
+  color: #0055B8;
+      padding-top: 10px;
+}
+.legends-content-1 h5{
+  font-size: 20px;
+  font-weight: 600;
+  color: #7D8080;
+}
+
+
+.nav-tab-legends{
+  flex-direction: column;
+}
+.legends{
+  flex-direction: row-reverse;
+}
+
+.nav-tabs-legends-1 ,.nav-tabs-legends-2{
+  height: 215px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.nav-tabs-legends-1  img{
+  width: 20px;
+  height: 20px;
+}
+.nav-tabs-legends-2 img{
+  width: 20px;
+  height: 20px;
+}
+.tab-content{
+  padding: 20px 0px 0px 20px;
+}
+.tab-content p{
+  font-size: 18px;
+  font-weight: 600;
+}
+.legends-content-1 img{
+  height: 218px;
+}
+.learn-more{
+  color: #EA0029;
+  font-size: 16px;
+}
+.learn-more:hover{
+  color: #EA0029;
+  font-size: 12px;
+  border: none;
+}
+
+/* events section 
+ */
+ .events h3{
+  font-size: 32px;
+  font-weight: 600;
+  color: #0055B8;
+ }
+ .event{
+  background-color: #e6e6e6;
+ }
+.event-title{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.event-title h5{
+font-weight: 600;
+    font-size: 18px;
+}
+.news-content{
+  padding-left: 20px;
+}
+.event-content h5{
+font-weight: 600;
+    font-size: 16px;
+}
+.event-content{
+  background-color: white;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.event-content h6{
+font-size: 16px;
+color: #EA0029;
+    font-weight: 600;
+}
+.event-content p{
+  font-size: 16px;
+  color: #7D8080;
+  font-weight: 500;
+  }
+  .event-row{
+    width: 32%;
+  }
+
+  .event-btn{
+    background-color: red;
+    color: white;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 30px;
+  }
+  .event-btn:hover{
+    background-color: white;
+    color: rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+  }
+.event-height{
+  height: 120px;
+  overflow: hidden;
+}
+.mobile-legends{
+  display: none;
+}
+.view-all-btn{
+  display: none;
+}
+
+  /* gallery section  */
+.gallery-title h3{
+  font-size: 32px;
+    font-weight: 600;
+}
+  .vertical-text{
+    border: 1px solid gray;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    text-align: end;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-bottom: 30px;
+  }
+  .img-box-wrapper{
+    border: 1px solid gray;
+  }
+  .img-box-heading h4{
+    FONT-SIZE: 26PX;
+    font-weight: 700;
+    text-align: end;
+    color: red;
+    padding: 20px 10px;
+    margin-bottom: 0;
+    border-bottom: 1px solid gray;
+  }
+  .img-box{
+    display: flex;
+}
+.slide{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 613px;
+    width: 20%;
+    position: relative;
+    flex: 0.5;
+    
+  
+    cursor: pointer;
+    color: white;
+}
+.slide-con{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+transition: cubic-bezier(0.215, 0.610, 0.355, 1);
+    padding: 4rem;
+}
+
+.slide h3{
+    position: relative;
+    top: 20px;
+    font-size: 34px;
+    opacity: 0;
+    text-align: center;
+
+}
+
+
+.slide.active{
+    flex: 5;
+}
+.slide.active h3{
+    opacity: 1;
+}
+
+.sponser-btn-wrapper{
+  text-align: center;
+  padding-top: 10px;
+}
+.btn-sponser{
+  background-color: red;
+    border-radius: 100px;
+    padding: 7px 25px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.sliders-wrapper{
+  border: 1px solid gray;
+  padding: 20px 0px;
+}
+/* .owl-carousel .owl-item img{
+  width: 147px !important;
+  height: 147px;
+} */
+.owl-item{
+  display: flex;
+
+  justify-content: center;
+}
+.owl-dot span{
+background-color: #0055B8 !important;
+width: 6px !important;
+height: 6px !important;
+margin: 4px 4px !important;
+}
+button.active {
+  border: 1px solid #0055B8 !important;
+  border-radius:100% ;
+}
+.slider-heading{
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+.slider-heading img{
+  width: 50px;
+height: 50px;
+}
+.sliders-wrapper-2{
+  margin-top: 10px;
+  border: 1px solid gray;
+  padding: 20px 15px;
+}
+.slider-heading-2{
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.slider-heading-2 h4{
+  font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+     font-family: "fieldwork", sans-serif;
+}
+.slider-heading-2 p{
+  font-size: 14px;
+    font-weight: 700;
+    color: #7D8080;
+}
+.slider-paragraph p{
+  font-size: 14px;
+  font-weight: 600;
+}
+.slider-paragraph {
+  padding: 0px 15px;
+}
+
+
+/* footer  */
+.footer-card-wrapper{
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  height: 252px;
+      position: relative;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-card h3{
+font-size: 24px;
+text-align: center;
+  font-weight: 600;
+}
+
+.footer-box{
+  border-top: 3px solid white;
+  width: 80%;
+  margin: auto;
+}
+.footer-card-wrapper:hover{
+  background: linear-gradient(0deg, rgb(246 0 77 / 85%), rgb(255 0 79 / 85%)) !important;
+}
+.footer-main{
+  background: linear-gradient(0deg, rgb(0 74 255 / 85%), rgb(0 36 255 / 85%)), url(images/camellia-inaugural.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+      position: relative;
+  align-items: center;
+  color: white;
+}
+.footer-main-content{
+  text-align: center;
+}
+.subscribe{
+  display: inline;
+  background-color: white;
+  padding: 10px 2px 10px 10px;
+  border-radius: 100px;
+}
+.email{
+  border: none;
+  padding: 6px 10px;
+}
+.email::placeholder{
+  font-size: 14px ;
+  font-weight: 600;
+}
+.subscribe-btn{
+  border: none;
+  border-radius: 100px;
+  border-bottom-left-radius: 0px;
+  background: red;
+  padding: 6px 20px;
+  border-top-left-radius: 0px;
+  color: white;
+  font-weight: 600;
+}
+.footer-main-content h3{
+  font-size: 32px;
+    font-weight: 600;
+
+}
+#login-remember{
+  font-size: 14px;
+  font-family: "fieldwork", sans-serif;
+}
+.checkbox{
+  display: flex;
+}
+
+.bottom-wrapper{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.footer-bottom{
+  background-color: #000000;
+}
+.bootom-1 h5{
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 600;
+}
+.bootom-1 a{
+  text-decoration: none;
+}
+.bootom-1 span{
+  color: #0055B8;
+}
+.footer-right{
+  display: flex;
+  justify-content: space-around;
+ 
+}
+.footer-right p{
+  color: white;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+/* end of home page  */
+
+/* contact page css starts here  */
+
+/* CONTACT PAGE CSS BEGINS HERE  */
+.breadcrumb-section{
+  background-color: #e6e6e6;
+}
+.breadcrumb{
+  margin-bottom: 0px !important;
+   font-weight: 600;
+     color: #7D8080;
+}
+.breadcrumb li a{
+  font-size: 16px;
+ 
+}
+.breadcrumb a{
+  text-decoration: none;
+  color: #7D8080;
+    
+}
+.breadcrumb-item.active{
+color: red !important;
+}
+ .contact-section{
+  background-color: #e6e6e6;
+}
+.contact-heading h1{
+  font-size: 60px;
+  color: #4D4D4D;
+  border-bottom: 2px solid #4D4D4D;
+  margin-bottom: 0px !important;
+  font-weight: 600;
+}
+.under-line{
+  border-top: 5px solid red;
+  width: 30%;
+  margin-top: -3px;
+  position: absolute;
+
+}
+.btn-success{
+  border-radius: 100px !important;
+  background-color: red !important;
+}
+.btn-send {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  width: 30%;
+border: 1px solid red;
+  }
+  .btn-send:hover {
+color: black;
+background-color: transparent !important;
+border: 1px solid ;
+  }
+.help-block.with-errors {
+  color: #ff5050;
+  margin-top: 5px;
+
+}
+
+.contact-form-section{
+  background-color: #e6e6e6;
+      padding-top: 30px;
+      padding-bottom: 30px;
+}
+.address-section{
+  background-color: white;
+}
+.card{
+  background-color: #EAEAEA !important;
+  border: none !important;
+}
+/* .card{
+margin-left: 10px;
+margin-right: 10px;
+} */
+.card-body{
+  padding: 0px !important;
+}
+.form-control{
+  border-radius: 0px !important;
+  border: 1px solid #707070!important;
+}
+.controls p{
+  font-size: 18px;
+}
+
+
+
+/* .address-section{
+  background-color: white;
+} */
+.address h5{
+  font-size: 18px;
+  color: red;
+      font-weight: 600;
+}
+.address p{
+  font-size: 16px;
+  font-weight: 600;
+    font-family: "fieldwork", sans-serif;
+}
+.address-social-icons{
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.address-social-icons h5{
+  font-size: 18px;
+      font-weight: 600;
+}
+.con-navbar{
+  flex-direction: initial !important;
+}
+
+/* END OF CONTACT PAGE CSS  */
+
+/* EXECUTIVE COMMITTEE CSS STARTS HERE  */
+.executive-committee-heading{
+  background-color: #e6e6e6;
+}
+
+
+.committee-profile{
+  background-color: #e6e6e6;
+}
+.committee-wrapper{
+  align-items: center !important;
+  justify-content: center;
+  text-align: start;
+  flex-wrap: wrap;
+}
+.com-img img{
+  width: 244px;
+  height: 254px;}
+  .committee{
+    width: 20%;
+  }
+  .con-content h6{
+    font-size: 18px;
+    font-weight: 600;
+    color: #0055B8;
+    padding-top: 10px;
+  }
+  .con-content span{
+    font-weight: 600;
+  }
+
+
+
+  /* Award winning names page css starts here  */
+  .Award-winning-heading{
+    background-color: #e6e6e6;
+
+  }
+  .award-winning-wrapper {
+    padding: 10px 100px;
+    background-color: white;
+  }
+  .award-wrapper
+  {
+    background-color: white;
+    padding: 30px 100px;
+  }
+  .award-heading{
+    border-bottom: 2px solid gray;
+  }
+  .award-heading h1 {
+    font-size: 60px;
+    color: #4D4D4D;
+    margin-bottom: 0px !important;
+    font-weight: 600;
+}
+.award-heading h6 {
+  font-size: 18px;
+  color: #7D8080;
+  font-family: "fieldwork", sans-serif;
+}
+.award-underline{
+  width: 46%;
+  
+  margin: -33px 100px;
+
+}
+  .award h6{
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .awards{
+    background-color: #e6e6e6;
+  }
+  .award-paragraph p{
+font-size: 18px;
+  }
+  .winner-image img{
+    width: 100%;
+  }
+
+.square img{
+  float: left;
+  margin: 5px;
+}
+.square p{
+  text-align: justify;
+  font-size: 18px;
+}
+
+
+
+
+
+
+/*  end of award winning page  */
+
+
+
+  /* Camellia Bowl Results page css begins */
+
+  .bowl-results-heading{
+    background-color: #e6e6e6;
+
+  }
+  .bowl-result-heading{
+    border-bottom: 2px solid gray;
+  }
+  .bowl-results-wrapper{
+    align-items: center !important;
+    justify-content: center;
+    text-align: start;
+    flex-wrap: wrap;
+  }
+  .bowl-result-heading h1 {
+    font-size: 40px;
+    color: #4D4D4D;
+    margin-bottom: 0px !important;
+    font-weight: 600;
+}
+
+.about-cotent-wrapper:first-child h1 {
+  font-size: 60px;
+}
+.bowl-btn-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cbr-btn{
+  width: 437px;
+height: 48px;
+color: white;
+background-color: #0055B8 !important;
+border-radius: 0 !important;
+font-size: 18px !important;
+font-weight: 600 !important;
+}
+.cbr-btn:hover{
+background-color: #EA0029 !important;
+border: none !important;
+color: white;
+}
+.game-by-game, .bowl-result-links, .year-by-year-wrapper{
+  background-color: #e6e6e6;
+}
+.game-by-game-heading{
+  border-bottom: 2px solid gray;
+}
+.game-by-game-heading h2{
+  font-size: 42px;
+  font-weight: 600;
+  color: #4C4C4C;
+}
+table{
+  border-color: transparent !important;
+}
+thead th{
+  font-size: 20px;
+  color: #0055B8 !important;
+  font-weight: 600;
+
+}
+tbody th {
+  font-size: 20px;
+  color: gray;
+  font-weight: 600;
+}
+tbody td {
+  font-size: 20px;
+  color: gray;
+  font-weight: 600;
+}
+.record-book-img img{
+  width: 276px;
+  height: 129px;
+}
+.record-book{
+  text-align: center;
+    padding-top: 40px;
+}
+.record-book-btn{
+  width: 209px;
+  font-size: 15px;
+  height: 48px;
+  font-weight: 600;
+  border-radius: 100px;
+  background-color: #EA0029;
+  color: white;
+}
+.record-book-btn:hover{
+  background-color: transparent;
+  border: 1px solid ;
+  color: black;
+}
+/* .year-by-year-facts-wrapper{
+  padding-bottom: 50px;
+} */
+.year-by-year-facts {
+  margin-top: 100px;
+  
+}
+.yby-image img{
+  width: 391px;
+height: 277px;
+margin-top: -50px;
+margin-left: -113px;
+}
+.yby-content h6{
+  font-size: 18px;
+  color: #0055B8 !important;
+  font-weight: 600;
+  font-family: "fieldwork", sans-serif;
+}
+.yby-content h3{
+  font-size: 32px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 2px solid gray;
+}
+.yby-content li{
+  font-size: 18px;
+  font-weight: 600;
+  color: #7D8080;
+  font-family: "fieldwork", sans-serif;
+}
+
+.yby-link-wrapper a{
+  font-size: 18px;
+  color: #EA0029;
+  text-decoration: none;
+  font-family: "fieldwork", sans-serif;
+}
+.badge:hover{
+font-size: 0;
+
+}
+.badge:hover:before {
+  font-size: 20px;
+  content: attr(data-hover);
+  color: #0055B8;
+}
+ul{
+  padding-left: 1rem !important;
+}
+
+
+
+
+
+
+
+
+
+/* multimedia page css */
+.multimedia-slider-wrapper{
+  background-color: #e6e6e6;
+}
+.gallery-slider{
+
+  background-color: #e6e6e6;
+}
+.wrapper{
+  width:100%;
+  padding-top: 20px;
+  text-align:center;
+}
+.carousel{
+  width:100%;
+  margin:0px auto;
+}
+.slick-slide{
+  margin:10px;
+}
+.wrapper .slick-dots li button:before {
+  font-size:20px;
+  color:rgb(255, 0, 0);
+}
+.car{
+  height: 200px;
+  width: 200px;
+  background-color: rgb(255, 255, 255);
+}
+.car img{
+  width: 412px;
+height: 231px;
+}
+.car-content{
+ padding: 20px;
+}
+.car-content h6{
+  font-size: 16px;
+  font-family: "fieldwork", sans-serif;
+  color: gray;
+  font-weight: 600;
+}
+.car-content h4{
+  font-size: 24px;
+  font-family: "fieldwork", sans-serif;
+  color: #4C4C4C;
+  font-weight: 600;
+}
+.car-content p{
+  font-size: 18px;
+  font-family: "fieldwork", sans-serif;
+  color: gray;
+}
+.slick-arrow{
+  background-color: blue !important;
+  font-weight: 800;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 12px;
+}
+.wrapper .slick-dots li button:before{
+  color: gray !important;
+  content: '' !important;
+}
+.slick-dots li button {
+  font-size: 0 !important;
+  display: block;
+  width: 24px !important;
+  height: 0px !important;
+  color: gray !important;
+  border: 0;
+  outline: none;
+    background: gray !important;}
+
+    .bowl-result-heading h2{
+      font-size: 42px;
+      font-weight: 600;
+      color: #4D4D4D;
+      font-family: "kulturista-web", serif;
+      margin-bottom: 0;
+    }
+    .slick-dotted.slick-slider {
+    margin-bottom: 0px !important;
+}
+.car-content-img{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.car-content-img img{
+      width: 50px !important;
+    height: 50px !important;
+position: absolute;
+top: 25%;
+}
+
+
+/* Bart Starr MVP Award page css starts here*/
+.bowl-result-link-wrapper p{
+  padding-top: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.preheader-wrapper{
+  background: linear-gradient(0deg, rgba(10, 10, 10, 0.65), rgba(0, 0, 0, 0.65)), url(../assests/camellia-inaugural.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+}
+.preheader-wrapper H6{
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+.preheader-wrapper H3{
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  padding-top: 50px;
+
+}
+.preheader-wrapper H5{
+  font-size: 16px;
+  color: white;
+}
+.MVP-award-btn{
+  text-decoration: none !important;
+  color: white  !important;
+  font-size: 18px  !important;
+  font-weight: 600  !important;
+  padding: 0 !important;
+}
+.mvp-under-line{
+  border-top: 3px solid red;
+  width: 9%;
+  margin-top: -4px;
+  position: absolute;
+
+}
+.winner-name{
+  background-color: #e6e6e6;
+}
+
+
+/* legends of the game page */
+
+
+.presented-by{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.legends-ofthegame{
+  display: flex;
+  justify-content: space-between;
+}
+.presented-by h6{
+  font-size: 18px;
+  margin-bottom: 0;
+  color: gray;
+}
+
+
+
+/* bowl staff page css */
+.bowl-member-wrapper{
+  justify-content: flex-start;
+}
+.bowl-staff-con p{
+  color: blue;
+  }
+  .bowl-staff-con span{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    }
+    .bowl-staff-btn{
+      background-color: red !important;
+      border: none !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      border-radius: 100px !important;
+      padding: 10px 40px !important;
+      color: white !important;
+    }
+    .bowl-staff-btn:hover{
+      background-color: transparent !important;
+      border: 1px solid !important ;
+      color: black !important;
+    }
+    .footer-bowl{
+background-color: #e6e6e6;
+    }
+
+
+
+    /* news page css starts here */
+    .news{
+      margin-top: 0px;
+    }
+    .yby-content p{
+      font-size: 18px;
+      color: gray;
+      padding-top: 20px;
+    }
+    .newss-btn{
+      text-decoration: none;
+      color: red;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+
+
+    /* Sponser page css srtarts here */
+    .bowl-results-heading p{
+      font-size: 18px;
+      margin-bottom: 0px;
+      padding-top: 15px;
+    }
+    .sponser-btn{
+      background-color: red !important;
+      border: 1px solid red !important ;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      border-radius: 100px !important;
+      padding: 10px 40px !important;
+      color: white !important;
+    }
+    .sponser-btn:hover{
+      background-color: transparent !important;
+      border: 1px solid !important ;
+      color: black !important;
+    }
+    .title-sponser-wrapper img{
+      width: 716px;
+height: 357px;
+
+    }
+    .sponser-logo img{
+      width: 100%;
+      height: 278px;
+      border: 1px solid;
+    }
+    .major-sponser-wrapper, .local-sponser-wrapper{
+      background-color: #e6e6e6;
+    }
+
+
+
+    /* POST TITLE CSS STARTS HERE */
+    .post-title-footer{
+      background-color: #e6e6e6;
+    }
+    .post-footer img{
+      width: 100%;
+    height: auto;
+    }
+    .post-footer h6{
+      font-size: 18px;
+      color: #4C4C4C;
+      padding: 10px 0px 0px 10px;
+    }
+    .post-footer h4{
+      font-size: 24px;
+      color: #0055B8;
+      padding: 0px 10px;
+    }
+    .post-footer h4:hover{
+      color: red;
+    }
+    .square img{
+      float: left;
+      margin: 5px;
+    }
+    .square p{
+      text-align: justify;
+      font-size: 18px;
+    }
+
+    /* Event page css starts here */
+
+    .events-wrapper{
+      background-color: #e6e6e6;
+    }
+    .event-dates{
+      background-color: #4C4C4C;
+    }
+    .event-dates h2{
+      font-size: 42px;
+      font-weight: 600;
+      color: white;
+      padding: 40px;
+    }
+    .event-map img{
+      width: 100%;
+height: 198px;
+    }
+    .event-link-wrapper{
+      display: flex;
+      justify-content: end;
+      flex-direction: column;
+      align-items: end;
+      text-align: end;
+    }
+    
+    .event-title-sec{
+  padding: 0px 40px;
+  display: flex;
+  justify-content: end;
+  align-items: self-start;
+  flex-direction: column;
+}
+    .event-title-sec h4{
+      font-size: 24px;
+      font-weight: 600;
+      color: #4C4C4C;
+    }
+    .event-title-sec h6{
+      font-size: 18px;
+      font-weight: 600;
+      color: #0055B8;
+    }
+    .event-title-sec p{
+      font-size: 18px;
+      color: #7D8080;
+    }
+    .event-link1, .event-link2{
+      text-decoration: none;
+      color: #EA0029;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 0px 15px;
+    }
+    .events-links{
+      padding-bottom: 16px;
+    }
+    .events-content{
+      padding-left: 20px;
+    }
+
+
+
+    /* Hotels page css starts here  */
+
+    .lodging-partner{
+      background-color: #e6e6e6;
+    }
+
+    .team-hotel-content{
+      background: linear-gradient(0deg, rgba(10, 10, 10, 0.65), rgba(0, 0, 0, 0.65)), url(../assests/camellia-inaugural.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 20px;
+    }
+    .team-hotel-wrapper h3{
+      font-size: 32px;
+    font-weight: 600;
+    color: #0055B8;
+    }
+    .team-hotel-content h2{
+      font-size: 42px;
+      font-weight: 600;
+      color: white;
+    }
+    .hotel-link{
+      padding: 0;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .hotel-link-underline{
+      border-top: 3px solid red;
+      width: 9%;
+      margin-top: -3px;
+      position: absolute;
+    }
+    .explore{
+      color: #4C4C4C !important;
+      border-bottom: 2px solid #4C4C4C;
+    }
+    .hotel-link-wrapper p{
+      color: white;
+      font-size: 18px;
+    }
+
+
+
+  /* block component css */
+  /* carousel */
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  background: transparent;
+
+}
+
+/* Slides */
+.quote-slider-wrapper{
+  height: 572px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+
+}
+ .mySlides .active{
+  display: flex;
+}
+/* Next & previous buttons */
+.prev, .next {
+display: none;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 48%;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #7d7d7d;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+ .dot:hover {
+  background-color: #ffffff;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: rgb(255, 255, 255);
+font-size: 18px;
+word-spacing: 0.5px;
+
+}
+
+.mySlides span img{
+  width: 95px;
+height: 93px;
+}
+.mySlides h3{
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+}
+.slider-image-1 img{
+  width: 95px;
+height: 93px;
+position: absolute;
+left: -30px;
+top: 6%;
+}
+.slider-image-2 img{
+  width: 95px;
+height: 93px;
+position: absolute;
+right: -30px;
+top: 6%;
+}
+.slider-image{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 404 page css starts here  */
+.error-page{
+  background-color: #e6e6e6;
+}
+.error-heading {
+  background-color: #EA0029;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 175px;
+}
+.error-heading h1{
+  font-size: 170px;
+  color: white;
+  font-weight: 600;
+
+}
+.error-heading h2{
+  font-size: 42px;
+  color: white;
+  font-weight: 600;
+  
+}
+.error-banner{
+  padding-top: 25px;
+}
+.error-banner img{
+  width: 100%;
+  
+}
+.error-sidebar-wrapper{
+  background-color: white;
+  padding: 20px 20px 5px 20px;
+}
+.error-sidebar-wrapper ul{
+  text-decoration: none;
+  list-style: none;
+  padding-left: 0 !important;
+  margin-bottom: 0;
+}
+.error-sidebar-wrapper li{
+  padding: 14px 0px;
+    border-bottom: 1px solid gray;
+}
+.error-sidebar-wrapper li a{
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  color: #0B141C;
+}
+.error-sidebar-wrapper h4{
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 0;
+  border-bottom: 1px solid gray;
+  color: #4C4C4C;
+  padding-bottom: 10px;
+}
+
+
+.trending-post{
+  padding: 20px 20px 5px 20px;
+}
+
+.trending-post li{
+  padding: 12px 0px;
+}
+.trending-post li a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0B141C;
+}
+
+
+/* Search site page css starts here */
+.search-site{
+  background-color: #e6e6e6;
+      padding: 0;
+}
+.seven-result{
+  padding-top: 30px;
+  font-size: 18px;
+  color:#7D8080 ;
+  margin-bottom: 0;
+}
+.site-search-result-wrapper h4{
+  font-size: 24px;
+  font-weight: 600;
+  color: #4C4C4C;
+}
+.search-site-img img{
+  width: 111px;
+height: 82px;
+}
+.site-search-para p{
+font-size: 18px;
+color:#7D8080 ;
+padding-left: 20px;
+}
+
+
+.site-search{
+  background-color: #e6e6e6;
+}
+
+/* parking and transportation page css startss here  */
+
+.parking-wrapper{
+  background-color: #e6e6e6;
+
+}
+.parking h2{
+font-size: 42px;
+font-weight: 600;
+color: #4C4C4C;
+border-bottom: 1px solid #4C4C4C;
+margin-bottom: 0;
+}
+.parking p{
+  font-size: 18px;
+  }
+.download-btn a{
+  color: red;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 0;
+}
+
+/* media credentials page css */
+.media-cred-section{
+  background-color: #e6e6e6;
+}
+.media-credentials-wrapper p{
+  font-size: 18px;
+}
+
+
+/* stadium info page css  */
+
+.stadium-info-wrapper, .stadium-policy-wrapper, .ticket-presale, .about-us-slider{
+  background-color: #e6e6e6;
+}
+
+.stadium-map-image{
+  border: 1px solid #4C4C4C;
+}
+.stadium-info-description ul{
+  margin-bottom: 0;
+}
+
+.stadium-info-description li{
+  font-size: 18px;
+   font-family: "fieldwork", sans-serif;
+   font-weight: 500;
+}
+
+
+
+/* hsitory page css */
+.history-image img{
+  width: 100%;
+  height: auto;
+}
+.history-paragraph span{
+  font-size: 18px;
+  font-weight: 600;
+}
+.history-paragraph p{
+  font-size: 18px;
+}
+.attendence-figure img{
+  width: 100%;
+
+}
+
+
+/* about us page css */
+
+.ab-dot-container{
+  top: 128%;
+}
+
+
+
+/* request form */
+.request-form{
+  background-color: white;
+  width: 665px;
+}
+
+.request-form-wrapper{
+  background-color: #4C4C4C;
+}
+
+.close{
+      position: absolute;
+    right: 28%;
+    top: 6%;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    font-weight: 400;
+    color: gray;
+}
+.close:hover{
+  color: red;
+}
+.dropdown-ticket{
+  width: unset !important;
+}
+.dropdown2{
+  border: 1px solid gray;
+  width: 100%;
+}
+
+.dropdown-toggle2{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-body h4{
+font-size: 24px;
+font-weight: 600;
+}
+
+.form-control-2{
+  border: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+    /* responsive for laptop  */
+@media (max-width: 1024px){
+  .links {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+  .form-control{
+    width: unset;
+  }
+  .input-group{
+    justify-content: center;
+    align-items: center;
+  }
+
+.bottom-header{
+  display: none;
+}
+.navbar-toggler-icon{
+  background-image: url(images/clipart1081183.png);
+  width: 44px;
+    height: 33px;
+}
+.navbar-toggler{
+  border: none !important;
+}
+.navbar-collapse>.menu-col{
+  width: 100%;
+}
+.navbar-collapse .show{
+  width: 100%;
+  background-color: gray !important;
+}
+
+
+
+
+
+/* legends  */
+.legends-wrapper{
+overflow: scroll;
+}
+
+
+/* gallery */
+.img-box-wrapper-1{
+width: 100%;
+}
+/* event */
+.event-title h5{
+  font-size: 16px;
+}
+.event-content h5{
+  font-size: 15px;
+}
+.event-content h6{
+  font-size: 15px;
+}
+.event-content p{
+  font-size: 15px;
+}
+.event-row {
+width: 100%;
+}
+
+/* footer  */
+.footer-card h3{
+  font-size: 16px;
+}
+
+
+.footer-card-wrapper{
+  height: 150px;
+}
+
+
+
+/* responsive for executive committee page  */
+.committee-wrapper{
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.committee{
+  width: unset;
+
+}
+
+
+
+/* event page responsive starts here */
+.event-link-wrapper {
+  align-items: self-start;
+  text-align: start;
+}
+
+.event-link1, .event-link2 {
+  font-size: 14px;
+  padding: 0px 0px;
+}
+.events-links {
+  padding-left: 40px;
+}
+
+
+.events-content {
+  margin-top: 20px;
+  padding-left: 0;
+}
+
+  
+.slider-image-1 img {
+  width: 88px;
+  height: 66px;
+  position: absolute;
+  left: 0px;
+  top: 12%;
+}
+.slider-image-2 img {
+width: 88px;
+height: 66px;
+position: absolute;
+right: 0px;
+top: 13%;
+} 
+.dot-container {
+  top: 50%;
+}
+
+.ab-dot-container{
+  top: 148%;
+}
+.close {
+    right: 11%;
+    top: 10%;
+}
+}
+
+
+
+
+
+
+/* responsive for tablets  */
+@media (max-width: 768px){
+  .bottom-header{
+    display: none;
+  }
+  nav a{
+    color: rgb(0, 0, 0);
+
+  }
+  .navbar {
+    justify-content: space-around;
+    background-color: white;
+  }
+  .tablet-header{
+    display: block;
+  }
+  .menu-wrapper{
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    gap: 13px;
+  }
+  .logo-section {
+    transform: skewX(0deg);
+  }
+  .logo-section img {
+    transform: skew(0deg);
+    width: 100px;
+  }
+  .tablet-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tablet-header img{
+    height: 25px;
+    width: 25px;
+  }
+  .vertical-togglee{
+    display: none;
+  }
+  .navbar-toggler-icon{
+    width: 2.5em;
+    height: 2.5em;
+  }
+  .navbar-toggler{
+    border: none;
+  }
+  
+  .navbar-collapse>.menu-col{
+    width: 100%;
+  }
+  #navbarSupportedContent{
+    width: 100%;
+    position: absolute;
+    background-color: rgb(205, 203, 203) !important;
+    left: 0;
+    top: 100%;
+  }
+  .navbar-toggler:focus{
+    outline: none !important;
+    border: none;
+    box-shadow: none;
+  }
+  .input-group{
+  display: none !important;
+  
+  }
+  .nav a .links{
+    color: rgb(0, 0, 0) !important;
+  }
+    
+  .legends-wrapper{
+    overflow: scroll;
+  }
+  
+  .nav-tab-legends {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .event-row {
+    width: 100%;
+  }
+  .site-under-line {
+    margin-top: -13px;
+        width: 62%;
+    
+}
+  
+  /* bnner  */
+  .banner-content h1{
+    font-size: 40px;
+  }
+  .banner-para{
+    padding-top: 30px !important;
+  }
+  .purchase-btn {
+    font-size: 12px;
+  }
+  .view-btn{
+    font-size: 12px;
+  }
+  .owl-sliders{
+    width: 100%;
+    padding-top: 30px;
+  }
+  .img-box-wrapper{
+    width: 91.1%;
+  }
+  
+  /* responsive for contact page starts here  */
+  
+  .form-group input{
+    width: 100%;
+  }
+  #form_name{
+    margin-bottom: 20px;
+  }
+  #form_email{
+    margin-bottom: 20px;
+  }
+  .form-group textarea{
+    width: 100%;
+  }
+  .address-social-icons{
+    align-items: start;
+  }
+  .address-section{
+    margin-top: 20px;
+  }
+  
+  /* responsive for executive committee page  */
+  .committee-wrapper{
+    flex-wrap: wrap;
+  }
+  
+  
+  
+  
+  
+  
+   /* responsive for camillia bowl resuts page */
+   .yby-image img {
+  
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  .offset-lg-1{
+    flex-direction: column;
+  }
+  .year-by-year-facts {
+    margin-top: 32px;
+    margin-bottom: 62px;
+  }
+  .bowl-btn-wrapper{
+  margin-bottom: 10px;
+  }
+  
+  /* reasponsive for multimedia page */
+  
+  .car img {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .car-content-img img {
+    top: 23%;
+  }
+  
+  .car-content p {
+    font-size: 15px;
+  }
+  .car-content h4 {
+    font-size: 20px;
+  }
+  
+  .winner-name-wrapper{
+    padding-top: 0px !important;
+  }
+  
+  .preheader-wrapper{
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  /* bowl staff page css */
+  .bowl-member-wrapper{
+    justify-content: center;
+  }
+  
+  
+  
+  
+   /* Sponser page css srtarts here */
+  
+  
+   .title-sponser-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .sponser-logo img{
+    height: auto;
+  }
+  
+  /* posts and award responsive */
+  .award-winning-wrapper {
+    padding: 10px ;
+  }
+  .award-wrapper {
+    padding: 10px;
+  }
+  .award-underline {
+    margin: -13px 10px;
+  }
+ /* Error page responsive starts here */
+ .trending-post li a {
+  font-size: 17px;
+}
+
+.close {
+    right: 9%;
+    top: 7%;
+}
+
+
+
+
+
+
+
+
+
+  
+  }
+
+
+
+
+
+
+
+
+  @media (max-width:525px){
+
+    .navbar-toggler-icon {
+      width: 1.8em;
+    
+  }
+  .subscribe{
+    background-color: transparent;
+  }
+  .subscribe-btn {
+    padding: 6px 20px;
+    margin-top: 20px;
+    border-bottom-left-radius: 100px;
+    border-top-left-radius: 100px;
+}
+.slide-con {
+  padding: 6rem;
+}
+.view-btn {
+
+  padding: 8px 22px 10px 22px;
+}
+    .left-mobile-section{
+      display: block;
+    }
+  
+    .tab-content {
+      padding: 0px 0px 0px 0px;
+      overflow: scroll;
+  }
+  .tab-panel-titles h5 {
+    font-size: 16px;
+}
+    .banner-btn-wrapper{
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .news-image img{
+      width: 150px;
+      height: 123px;
+  
+    }
+    .navbar {
+   justify-content: space-between;
+      background-color: white;
+      padding: 20px 20px !important;
+  }
+  .event-row {
+  padding: 0px 40px;
+  }
+  .img-box-wrapper-1 {
+    padding: 0px 40px;
+  }
+  #navbarSupportedContent {
+    top: 77px;
+  }
+  .owl-sliders {
+    padding: 30px 30px;
+  }
+  .cardss{
+    width: 50%;
+  }
+  .nav-tab-legends {
+  display: none;
+  }
+  .bottom-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .team-name h5 {
+    font-size: 13px;
+    padding-left: 8px;
+}
+.score h5 {
+  font-size: 14px;
+}
+.east h5 {
+  font-size: 18px;
+}
+.news-section{
+  padding-top: 30px;
+}
+
+
+
+
+
+
+
+
+  .slide{
+    height: unset;
+  }
+  .slide.active h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .footer-right p {
+    text-align: center;
+    font-size: 15px;
+  }
+  .subscribe-btn{
+    padding: 6px 20px;
+  }
+  .email::placeholder{
+    font-size: 14px;
+  }
+  .venture h5{
+    padding-top: 30px;
+  }
+  .bootom-1 h5 {
+    padding-top: 20px;
+  }
+  
+  .news-btn-wrapper{
+    align-items: center;
+    justify-content: center;
+  }
+  #legend-slider{
+    display: none;
+  }
+  .legend-section{
+    display: none;
+  }
+  .gallery-title h3 {
+    font-size: 20px;
+
+}
+.sub-menu li a {
+  color: black;
+  font-size: 13px;
+}
+  .legend-heading{
+    display: none;
+  }
+  .mobile-legends{
+    background-color: #e6e6e6;
+    display: block;
+  }
+  .mobile-legends h3{
+    font-size: 26px;
+    font-weight: 600;
+    color:#0055B8;
+  }
+  
+  .legends-content-mobile h4{
+    font-size: 22px;
+    font-weight: 600;
+    color:#0055B8;
+  }
+  .legends-content-mobile h5{
+    font-size: 20px;
+    font-weight: 600;
+    color: #7D8080;
+  }
+  
+  .learn-more{
+    color: #EA0029;
+    font-size: 18px;
+    border: none;
+    font-weight: 600;
+  
+  }
+  .learn-more:hover{
+    color: #EA0029;
+    font-size: 14px;
+    border: none;
+  }
+  .view-alll{
+    background-color: red;
+    color: white;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 30px !important;
+  }
+  .view-all-btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  
+  
+  
+  
+  /* responsive for executive committee page  */
+  .contact-heading h1 {
+    font-size: 37px;
+   
+  }
+  .breadcrumb-item  {
+    font-size: 13px;
+  }
+  .breadcrumb li a {
+    font-size: 13px;
+  }
+  
+  
+  
+  
+  
+  
+  /* camellia bowl result page responsive starts here  */
+  
+  .bowl{
+  flex-wrap: wrap;}
+  .cbr-btn{
+    margin-bottom: 20px;
+  }
+  
+  
+  .record-book {
+    padding-bottom: 40px;
+  }
+  .bowl-result-heading h1{
+  font-size: 40px;
+  }
+  .game-by-game-heading h2 {
+    font-size: 35px;
+    font-weight: 600;
+  }
+  
+  
+  /* multimedia page responsive */
+  .slick-next, .slick-prev{
+    display: none !important;
+  }
+  
+  
+  .yby-content h3{
+    font-size: 24px;
+  }
+  .yby-content p {
+    font-size: 16px;
+  }
+  
+   /* Sponser page css srtarts here */
+  .sponser-logo img{
+  margin-top: 20px;
+  }
+  
+     /* POST TITLE CSS STARTS HERE */
+    .post-footer {
+      padding-bottom: 20px;
+    }
+  
+  .award-underline {
+    margin: -13px 10px;
+  }
+  
+  
+  
+  /* award winning page css */
+  .award-heading h1 {
+    font-size: 45px;
+  }
+  
+  
+  
+  /* Event page responsive  */
+  .event-title-sec {
+    padding: 15px 0px 0px 40px;
+  }
+  .hotel-link-underline {
+    width: 32%;
+  
+  }
+  .team-hotel-content{
+  margin-bottom: 20px;
+  }
+  
+  
+  
+  
+  /* block components css responsive  */
+  .slider-image-2 img {
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    top: 53%;
+}
+.slider-image-1 img {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  left: 0px;
+ 
+}
+.mySlides h3 {
+  font-size: 22px;
+}
+.dot-container {
+  top: 56%;
+}
+
+/* 404 error page */
+.error-heading {
+
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.error-heading h1 {
+  font-size: 140px;
+}
+  
+/* site search page responsive  */
+.search-site-img img {
+    width:100%;
+    height: auto;
+}
+
+.site-search-para p {
+  padding-left: 0px;
+  padding-top: 10px;
+}
+
+
+/* parking page responsive  */
+.download-image img{
+  width: 100%;
+  height: auto;
+}
+.parking h2 {
+  font-size: 35px;
+}
+
+
+/* stadium map page responsive */
+.stadium-map-image img{
+  width: 100%;
+}
+
+
+/* about us page css */
+
+.ab-dot-container{
+  top: 188%;
+}
+
+/* forms */
+.request-form{
+  width: auto;
+}
+
+.btn-send {
+    width: auto;
+}
+.close {
+    right: 7%;
+    top: 7%;
+}
+
+  }
+
+
+
+
+
